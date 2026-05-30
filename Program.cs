@@ -36,6 +36,7 @@ do
 } while (!valido || numero <= 0);
 int opcion;
 float num1, num2 = 0, resultado = 0;
+string textoNum1, textoNum2;
 do
 {
     do
@@ -92,12 +93,26 @@ do
             }
         } while (!valido || (num2 == 0 && opcion == 4));
     }
+    textoNum1 = num1.ToString();
+    textoNum2 = num2.ToString();
     switch (opcion)
     {
-        case 1: resultado = num1 + num2; break;
-        case 2: resultado = num1 - num2; break;
-        case 3: resultado = num1 * num2; break;
-        case 4: resultado = num1 / num2; break;
+        case 1:
+            resultado = num1 + num2;
+            Console.WriteLine($"La suma de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+            break;
+        case 2:
+            resultado = num1 - num2;
+            Console.WriteLine($"La resta de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+            break;
+        case 3:
+            resultado = num1 * num2;
+            Console.WriteLine($"La multiplicacion de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+            break;
+        case 4:
+            resultado = num1 / num2;
+            Console.WriteLine($"La division de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+            break;
         case 5: resultado = Math.Abs(num1); break;
         case 6: resultado = (float)Math.Pow(num1, 2); break;
         case 7: resultado = (float)Math.Sqrt(num1); break;
@@ -105,7 +120,6 @@ do
         case 9: resultado = (float)Math.Cos(num1 * Math.PI / 180); break;
         case 10: resultado = (int)Math.Truncate(num1); break;
     }
-    Console.WriteLine("El resultado es " + resultado);
     do
     {
         Console.WriteLine("Desea realizar otra operacion?");
