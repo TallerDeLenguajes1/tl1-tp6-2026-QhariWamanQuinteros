@@ -60,3 +60,13 @@ do
         Console.WriteLine("Error.\nLos valores ingresados no son válidos.");
     }
 } while (!valido || !valido2 || a < 0 || b <= 0 || a + b > ingresosConcatenados.Length);
+foreach (char letra in textoIngresado)
+{
+    Console.WriteLine($"{letra}");
+}
+Console.WriteLine("Ingrese una letra, palabra o parte del texto que quiera remplazar");
+string textoARemplazar = Console.ReadLine();
+Console.WriteLine("Ingrese el texto por el que desea remplazar el texto ingresado");
+string textoReemplazo = Console.ReadLine();
+string nuevoTexto = textoIngresado.Replace(textoARemplazar, textoReemplazo);
+Console.WriteLine($"El nuevo texto es {nuevoTexto}");
