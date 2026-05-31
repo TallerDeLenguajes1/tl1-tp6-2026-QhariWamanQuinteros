@@ -35,11 +35,12 @@ do
     }
 } while (!valido || numero <= 0);
 bool valido2;
+string textoIngresado2;
 Console.WriteLine("Ingrese una cadena de texto");
 string textoIngresado = Console.ReadLine();
 Console.WriteLine("La longitud de la cadena ingresada es " + textoIngresado.Length);
 Console.WriteLine("Ingrese otra cadena de texto");
-string textoIngresado2 = Console.ReadLine();
+textoIngresado2 = Console.ReadLine();
 //string ingresosConcatenados = textoIngresado + textoIngresado2;
 //string ingresosConcatenados = string.Concat(textoIngresado, textoIngresado2);
 string ingresosConcatenados = $"{textoIngresado} {textoIngresado2}";
@@ -70,3 +71,9 @@ Console.WriteLine("Ingrese el texto por el que desea remplazar el texto ingresad
 string textoReemplazo = Console.ReadLine();
 string nuevoTexto = textoIngresado.Replace(textoARemplazar, textoReemplazo);
 Console.WriteLine($"El nuevo texto es {nuevoTexto}");
+Console.WriteLine("El texto original es " + textoIngresado);
+Console.WriteLine("El texto en mayuscula es " + textoIngresado.ToUpper());
+Console.WriteLine("El texto en minuscula es " + textoIngresado.ToLower());
+Console.WriteLine("Ingresa otro texto");
+textoIngresado2 = Console.ReadLine();
+string[] resultado = textoIngresado2.Split(',');
