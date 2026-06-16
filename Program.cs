@@ -52,6 +52,7 @@ do
         Console.WriteLine("\t8. Calcular el seno de un angulo");
         Console.WriteLine("\t9. Calcular el coseno de un angulo");
         Console.WriteLine("\t10. Calcular la parte entera de un numero");
+        Console.WriteLine("\t11. Salir");
         valido = int.TryParse(Console.ReadLine(), out opcion);
         if (!valido)
         {
@@ -59,86 +60,108 @@ do
         }
         else
         {
-            if (opcion < 1 || opcion > 10)
+            if (opcion < 1 || opcion > 11)
             {
                 Console.WriteLine("El numero ingresado no es una opcion valida");
             }
         }
-    } while (!valido || opcion < 1 || opcion > 10);
-    do
-    {
-        Console.WriteLine("Ingrese un numero");
-        valido = float.TryParse(Console.ReadLine(), out num1);
-        if (!valido)
-        {
-            Console.WriteLine("El valor ingresado no es un numero.");
-        }
-    } while (!valido);
-    if (opcion > 0 && opcion < 5)
+    } while (!valido || opcion < 1 || opcion > 11);
+    if (opcion != 11)
     {
         do
         {
-            Console.WriteLine("Ingrese otro numero");
-            valido = float.TryParse(Console.ReadLine(), out num2);
+            Console.WriteLine("Ingrese un numero");
+            valido = float.TryParse(Console.ReadLine(), out num1);
+            if (!valido)
+            {
+                Console.WriteLine("El valor ingresado no es un numero.");
+            }
+        } while (!valido);
+        if (opcion > 0 && opcion < 5)
+        {
+            do
+            {
+                Console.WriteLine("Ingrese otro numero");
+                valido = float.TryParse(Console.ReadLine(), out num2);
+                if (!valido)
+                {
+                    Console.WriteLine("El valor ingresado no es un numero.");
+                }
+                else
+                {
+                    if (num2 == 0 && opcion == 4)
+                    {
+                        Console.WriteLine("La division entre 0 (cero) no esta definida");
+                    }
+                }
+            } while (!valido || (num2 == 0 && opcion == 4));
+        }
+        textoNum1 = num1.ToString();
+        textoNum2 = num2.ToString();
+        switch (opcion)
+        {
+            case 1:
+                resultado = num1 + num2;
+                Console.WriteLine($"La suma de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+                break;
+            case 2:
+                resultado = num1 - num2;
+                Console.WriteLine($"La resta de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+                break;
+            case 3:
+                resultado = num1 * num2;
+                Console.WriteLine($"La multiplicacion de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+                break;
+            case 4:
+                resultado = num1 / num2;
+                Console.WriteLine($"La division de {textoNum1} y {textoNum2} es {resultado.ToString()}");
+                break;
+            case 5:
+                resultado = Math.Abs(num1);
+                Console.WriteLine($"El valor absoluto de {textoNum1} es {resultado.ToString()}");
+                break;
+            case 6:
+                resultado = (float)Math.Pow(num1, 2);
+                Console.WriteLine($"El cuadrado de {textoNum1} es {resultado.ToString()}");
+                break;
+            case 7:
+                resultado = (float)Math.Sqrt(num1);
+                Console.WriteLine($"La raiz cuadrada de {textoNum1} es {resultado.ToString()}");
+                break;
+            case 8:
+                resultado = (float)Math.Sin(num1 * Math.PI / 180);
+                Console.WriteLine($"El seno de {textoNum1} es {resultado.ToString()}");
+                break;
+            case 9:
+                resultado = (float)Math.Cos(num1 * Math.PI / 180);
+                Console.WriteLine($"El coseno de {textoNum1} es {resultado.ToString()}");
+                break;
+            case 10:
+                resultado = (int)Math.Truncate(num1);
+                Console.WriteLine($"El valor entero de {textoNum1} es {resultado.ToString()}");
+                break;
+        }
+        do
+        {
+            Console.WriteLine("Desea realizar otra operacion?");
+            Console.WriteLine("\t1. Si");
+            Console.WriteLine("\t2. No");
+            valido = int.TryParse(Console.ReadLine(), out opcion);
             if (!valido)
             {
                 Console.WriteLine("El valor ingresado no es un numero.");
             }
             else
             {
-                if (num2 == 0 && opcion == 4)
+                if (opcion < 1 || opcion > 2)
                 {
-                    Console.WriteLine("La division entre 0 (cero) no esta definida");
+                    Console.WriteLine("El numero ingresado no es una opcion disponible");
                 }
             }
-        } while (!valido || (num2 == 0 && opcion == 4));
+        } while (!valido || opcion < 1 || opcion > 2);
     }
-    textoNum1 = num1.ToString();
-    textoNum2 = num2.ToString();
-    switch (opcion)
-    {
-        case 1:
-            resultado = num1 + num2;
-            Console.WriteLine($"La suma de {textoNum1} y {textoNum2} es {resultado.ToString()}");
-            break;
-        case 2:
-            resultado = num1 - num2;
-            Console.WriteLine($"La resta de {textoNum1} y {textoNum2} es {resultado.ToString()}");
-            break;
-        case 3:
-            resultado = num1 * num2;
-            Console.WriteLine($"La multiplicacion de {textoNum1} y {textoNum2} es {resultado.ToString()}");
-            break;
-        case 4:
-            resultado = num1 / num2;
-            Console.WriteLine($"La division de {textoNum1} y {textoNum2} es {resultado.ToString()}");
-            break;
-        case 5: resultado = Math.Abs(num1); break;
-        case 6: resultado = (float)Math.Pow(num1, 2); break;
-        case 7: resultado = (float)Math.Sqrt(num1); break;
-        case 8: resultado = (float)Math.Sin(num1 * Math.PI / 180); break;
-        case 9: resultado = (float)Math.Cos(num1 * Math.PI / 180); break;
-        case 10: resultado = (int)Math.Truncate(num1); break;
-    }
-    do
-    {
-        Console.WriteLine("Desea realizar otra operacion?");
-        Console.WriteLine("\t1. Si");
-        Console.WriteLine("\t2. No");
-        valido = int.TryParse(Console.ReadLine(), out opcion);
-        if (!valido)
-        {
-            Console.WriteLine("El valor ingresado no es un numero.");
-        }
-        else
-        {
-            if (opcion < 1 || opcion > 2)
-            {
-                Console.WriteLine("El numero ingresado no es una opcion disponible");
-            }
-        }
-    } while (!valido || opcion < 1 || opcion > 2);
-} while (opcion != 2);
+} while (opcion != 2 && opcion != 11);
+Console.WriteLine("Ahora ingresará dos numeros y el programa calculara el mayor de ellos");
 do
 {
     Console.WriteLine("Ingrese un numero");
