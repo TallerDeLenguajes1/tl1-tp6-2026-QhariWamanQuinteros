@@ -1,4 +1,5 @@
-﻿Console.WriteLine("Hello, World!");
+﻿//Console.WriteLine("Hello, World!");
+// float F o f; decimal m o M
 int a;
 int b;
 a = 10;
@@ -65,15 +66,19 @@ foreach (char letra in textoIngresado)
 {
     Console.WriteLine($"{letra}");
 }
-Console.WriteLine("Ingrese una letra, palabra o parte del texto que quiera remplazar");
-string textoARemplazar = Console.ReadLine();
-Console.WriteLine("Ingrese el texto por el que desea remplazar el texto ingresado");
-string textoReemplazo = Console.ReadLine();
-string nuevoTexto = textoIngresado.Replace(textoARemplazar, textoReemplazo);
-Console.WriteLine($"El nuevo texto es {nuevoTexto}");
+Console.WriteLine("Ingrese una letra, palabra o texto y el programa verificará si existe en la cadena");
+string textoABuscar = Console.ReadLine();
+if (textoIngresado.Contains(textoABuscar))
+{
+    Console.WriteLine($"El texto buscado existe y es: {textoABuscar}");
+}
 Console.WriteLine("El texto original es " + textoIngresado);
 Console.WriteLine("El texto en mayuscula es " + textoIngresado.ToUpper());
 Console.WriteLine("El texto en minuscula es " + textoIngresado.ToLower());
-Console.WriteLine("Ingresa otro texto");
+Console.WriteLine("Ingresa otro texto. Y el programa lo dividirá en donde pongas coma (,)");
 textoIngresado2 = Console.ReadLine();
 string[] resultado = textoIngresado2.Split(',');
+foreach (var palabra in resultado)
+{
+    Console.WriteLine(palabra);
+}
