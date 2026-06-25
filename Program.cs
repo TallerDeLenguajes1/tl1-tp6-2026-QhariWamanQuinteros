@@ -77,7 +77,7 @@ Console.WriteLine("El texto en mayuscula es " + textoIngresado.ToUpper());
 Console.WriteLine("El texto en minuscula es " + textoIngresado.ToLower());
 Console.WriteLine("Ingresa otro texto. Y el programa lo dividirá en donde pongas coma (,)");
 textoIngresado2 = Console.ReadLine();
-string[] resultado = textoIngresado2.Split(',');
+string[] resultado = textoIngresado2.Split(','); //Divide una cadena en subcadenas con el delimitador especificado
 foreach (var palabra in resultado)
 {
     Console.WriteLine(palabra);
